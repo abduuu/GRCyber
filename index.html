@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GRCyber - Modern Cybersecurity Solutions</title>
+
+    <!-- Favicon: Using the small logo for the site icon -->
+    <!-- REPLACE THIS URL WITH YOUR RAW GITHUB LINK -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/YourUsername/YourRepo/main/assets/logo_small_grcyber.png">
+    
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Lucide Icons -->
@@ -50,6 +55,16 @@
             display: inline-block;
             stroke-width: 2.5;
         }
+
+        /* Hide the full logo on small screens, show the small logo */
+        .logo-full { display: none; }
+        .logo-small { display: block; }
+        
+        /* Show the full logo on medium screens and up, hide the small logo */
+        @media (min-width: 768px) {
+            .logo-full { display: block; }
+            .logo-small { display: none; }
+        }
     </style>
 </head>
 
@@ -59,12 +74,23 @@
     <header class="sticky top-0 z-50 shadow-md bg-white dark:bg-gray-800 transition-colors duration-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo Image (Replaced old icon/text) -->
+                <!-- Logo Image (Responsive switching between full and small logo) -->
                 <a href="#" class="flex items-center">
+                    <!-- Full Logo (for desktop/tablet) -->
+                    <!-- REPLACE THIS URL WITH YOUR RAW GITHUB LINK -->
                     <img 
-                        src="uploaded:logo  grcyber fine tuned .jpg-096a878e-e66d-4f6d-b971-fec86869cb22" 
+                        src="https://raw.githubusercontent.com/YourUsername/YourRepo/main/assets/logo_grcyber_full.jpg" 
                         alt="GRCyber Logo" 
-                        class="h-8 md:h-10"
+                        class="logo-full h-8 md:h-10"
+                        onerror="this.src='https://placehold.co/150x40/3366B3/FFFFFF?text=GRCyber';"
+                    >
+                    <!-- Small Icon Logo (for mobile) -->
+                    <!-- REPLACE THIS URL WITH YOUR RAW GITHUB LINK -->
+                    <img 
+                        src="https://raw.githubusercontent.com/YourUsername/YourRepo/main/assets/logo_small_grcyber.png" 
+                        alt="GRCyber Icon" 
+                        class="logo-small h-8"
+                        onerror="this.src='https://placehold.co/40x40/3366B3/FFFFFF?text=GC';"
                     >
                 </a>
 
