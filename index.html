@@ -14,8 +14,12 @@
             theme: {
                 extend: {
                     colors: {
-                        'primary-blue': '#1e3a8a', // Indigo 900
-                        'accent-red': '#e11d48', // Rose 600
+                        // Colors sampled directly from the uploaded logo
+                        'primary-blue': '#3366B3', 
+                        'accent-red': '#E12B2B', 
+                        'logo-green': '#76C64D', // Used for checkmarks/success indicators
+                        
+                        // Background colors remain robust for contrast
                         'dark-bg': '#0f172a',    // Slate 900
                         'light-bg': '#f9fafb',   // Gray 50
                     },
@@ -55,10 +59,13 @@
     <header class="sticky top-0 z-50 shadow-md bg-white dark:bg-gray-800 transition-colors duration-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="#" class="flex items-center space-x-2 text-2xl font-extrabold text-primary-blue dark:text-white">
-                    <i data-lucide="shield-check" class="lucide w-7 h-7 text-accent-red"></i>
-                    <span>GRCyber</span>
+                <!-- Logo Image (Replaced old icon/text) -->
+                <a href="#" class="flex items-center">
+                    <img 
+                        src="uploaded:logo  grcyber fine tuned .jpg-096a878e-e66d-4f6d-b971-fec86869cb22" 
+                        alt="GRCyber Logo" 
+                        class="h-8 md:h-10"
+                    >
                 </a>
 
                 <!-- Desktop Nav and Theme Toggle -->
@@ -135,7 +142,7 @@
                     <!-- Benefit 1: Extensive Support Capabilities -->
                     <div class="p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg border-t-4 border-primary-blue hover:shadow-2xl transition duration-300">
                         <div class="flex items-center mb-3">
-                            <i data-lucide="check-circle" class="lucide w-6 h-6 mr-3 text-accent-red flex-shrink-0"></i>
+                            <i data-lucide="check-circle" class="lucide w-6 h-6 mr-3 text-logo-green flex-shrink-0"></i>
                             <h3 class="font-bold text-xl dark:text-gray-100">Extensive Support Capabilities</h3>
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -146,7 +153,7 @@
                     <!-- Benefit 2: Analyses Conducted In-depth -->
                     <div class="p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg border-t-4 border-primary-blue hover:shadow-2xl transition duration-300">
                         <div class="flex items-center mb-3">
-                            <i data-lucide="check-circle" class="lucide w-6 h-6 mr-3 text-accent-red flex-shrink-0"></i>
+                            <i data-lucide="check-circle" class="lucide w-6 h-6 mr-3 text-logo-green flex-shrink-0"></i>
                             <h3 class="font-bold text-xl dark:text-gray-100">Analyses Conducted In-depth</h3>
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -157,7 +164,7 @@
                     <!-- Benefit 3: Save Time & Resources -->
                     <div class="p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg border-t-4 border-primary-blue hover:shadow-2xl transition duration-300">
                         <div class="flex items-center mb-3">
-                            <i data-lucide="check-circle" class="lucide w-6 h-6 mr-3 text-accent-red flex-shrink-0"></i>
+                            <i data-lucide="check-circle" class="lucide w-6 h-6 mr-3 text-logo-green flex-shrink-0"></i>
                             <h3 class="font-bold text-xl dark:text-gray-100">Save Time & Resources</h3>
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -168,7 +175,7 @@
                     <!-- Benefit 4: Improved Decision Making -->
                     <div class="p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg border-t-4 border-primary-blue hover:shadow-2xl transition duration-300">
                         <div class="flex items-center mb-3">
-                            <i data-lucide="check-circle" class="lucide w-6 h-6 mr-3 text-accent-red flex-shrink-0"></i>
+                            <i data-lucide="check-circle" class="lucide w-6 h-6 mr-3 text-logo-green flex-shrink-0"></i>
                             <h3 class="font-bold text-xl dark:text-gray-100">Improved Decision Making</h3>
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -179,7 +186,7 @@
                     <!-- Benefit 5: Establish Long-Term Governance -->
                     <div class="p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg border-t-4 border-primary-blue hover:shadow-2xl transition duration-300">
                         <div class="flex items-center mb-3">
-                            <i data-lucide="check-circle" class="lucide w-6 h-6 mr-3 text-accent-red flex-shrink-0"></i>
+                            <i data-lucide="check-circle" class="lucide w-6 h-6 mr-3 text-logo-green flex-shrink-0"></i>
                             <h3 class="font-bold text-xl dark:text-gray-100">Establish Long-Term Governance</h3>
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -190,7 +197,7 @@
                     <!-- Benefit 6: Maintain Compliance Confidently -->
                     <div class="p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg border-t-4 border-primary-blue hover:shadow-2xl transition duration-300">
                         <div class="flex items-center mb-3">
-                            <i data-lucide="check-circle" class="lucide w-6 h-6 mr-3 text-accent-red flex-shrink-0"></i>
+                            <i data-lucide="check-circle" class="lucide w-6 h-6 mr-3 text-logo-green flex-shrink-0"></i>
                             <h3 class="font-bold text-xl dark:text-gray-100">Maintain Compliance Confidently</h3>
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -201,7 +208,7 @@
                     <!-- Benefit 7: Ensure Third Party Compliance (Spans two columns and centers on desktop) -->
                     <div class="p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg border-t-4 border-primary-blue hover:shadow-2xl transition duration-300 lg:col-span-2 lg:col-start-2">
                         <div class="flex items-center mb-3">
-                            <i data-lucide="check-circle" class="lucide w-6 h-6 mr-3 text-accent-red flex-shrink-0"></i>
+                            <i data-lucide="check-circle" class="lucide w-6 h-6 mr-3 text-logo-green flex-shrink-0"></i>
                             <h3 class="font-bold text-xl dark:text-gray-100">Ensure Third Party Compliance</h3>
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-400">
