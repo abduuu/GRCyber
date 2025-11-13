@@ -127,10 +127,11 @@
                     <a href="#contact" class="px-4 py-2 bg-accent-red text-white font-semibold rounded-full hover:bg-red-700 transition duration-300 shadow-lg shadow-red-500/50">Contact</a>
                 </div>
 
-                <!-- Theme Toggle Button -->
+                <!-- Theme Toggle Button (Updated Icon Classes) -->
                 <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-primary-blue">
-                    <i data-lucide="sun" id="sun-icon" class="lucide w-6 h-6 text-yellow-500 dark:hidden"></i>
-                    <i data-lucide="moon" id="moon-icon" class="lucide w-6 h-6 text-primary-blue hidden dark:block"></i>
+                    <!-- Tailwind dark: variants removed here, JS handles the visibility -->
+                    <i data-lucide="sun" id="sun-icon" class="lucide w-6 h-6 text-yellow-500"></i>
+                    <i data-lucide="moon" id="moon-icon" class="lucide w-6 h-6 text-primary-blue hidden"></i>
                 </button>
             </div>
         </div>
@@ -322,22 +323,33 @@
         // 1. Theme Toggle Logic
         const toggleButton = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
+        // NEW: Get icon elements for explicit control
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
 
         // Check for saved theme preference or system preference
         const savedTheme = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+        // Function to apply the theme and handle icon visibility
         function applyTheme(theme) {
             if (theme === 'dark') {
                 htmlElement.classList.add('dark');
                 localStorage.setItem('theme', 'dark');
+                // Explicitly show moon/hide sun
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
             } else {
                 htmlElement.classList.remove('dark');
                 localStorage.setItem('theme', 'light');
+                // Explicitly show sun/hide moon
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
             }
         }
 
         // Apply initial theme
+        // The initial application now correctly sets both the HTML class and the icon visibility
         if (savedTheme) {
             applyTheme(savedTheme);
         } else if (prefersDark) {
