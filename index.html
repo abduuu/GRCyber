@@ -1,98 +1,248 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRCyber - Working Test Page</title>
+    <title>GRCyber - Modern Cybersecurity Solutions</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Configure Tailwind Colors & Font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#1e3a8a', // Indigo 900
+                        'accent-red': '#e11d48', // Rose 600
+                        'dark-bg': '#0f172a',    // Slate 900
+                        'light-bg': '#f9fafb',   // Gray 50
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
     <style>
-        /* Basic CSS for organization */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            text-align: center;
+        /* Custom styles for professional dropdown */
+        .dropdown-menu {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transform-origin: top;
+            opacity: 0;
+            transform: scaleY(0);
         }
-        header {
-            background-color: #004d99; /* A professional blue */
-            color: white;
-            padding: 20px 0;
+        .dropdown-menu.active {
+            opacity: 1;
+            transform: scaleY(1);
         }
-        nav {
-            background-color: #003366; /* Darker blue for contrast */
-            padding: 10px 0;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        nav a:hover {
-            background-color: #0066cc;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .test-message {
-            color: #cc0000; /* A noticeable red for testing status */
-            font-size: 1.5em;
-            margin-top: 30px;
-            padding: 20px;
-            border: 2px dashed #cc0000;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        /* Style for Lucide Icons */
+        .lucide {
+            display: inline-block;
+            stroke-width: 2.5;
         }
     </style>
 </head>
-<body>
 
-    <header>
-        <h1>GRCyber</h1>
-        <p>Your Cybersecurity Partner</p>
+<body class="bg-light-bg text-gray-800 dark:bg-dark-bg dark:text-gray-100 transition-colors duration-500 font-sans">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 shadow-md bg-white dark:bg-gray-800 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2 text-2xl font-extrabold text-primary-blue dark:text-white">
+                    <i data-lucide="shield-check" class="lucide w-7 h-7 text-accent-red"></i>
+                    <span>GRCyber</span>
+                </a>
+
+                <!-- Desktop Nav and Theme Toggle -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#home" class="text-gray-600 dark:text-gray-300 hover:text-primary-blue dark:hover:text-accent-red font-medium transition duration-300">Home</a>
+                    <div class="relative group">
+                        <!-- Services Dropdown Button -->
+                        <button id="services-btn" class="flex items-center text-gray-600 dark:text-gray-300 hover:text-primary-blue dark:hover:text-accent-red font-medium transition duration-300">
+                            Services
+                            <i data-lucide="chevron-down" class="lucide w-4 h-4 ml-1"></i>
+                        </button>
+                        <!-- Services Dropdown Menu -->
+                        <div id="services-menu" class="dropdown-menu absolute right-0 mt-3 w-72 bg-white dark:bg-gray-700 shadow-xl rounded-lg overflow-hidden border border-gray-100 dark:border-gray-600 origin-top">
+                            <a href="#specialized" class="block px-4 py-3 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 transition flex items-center">
+                                <i data-lucide="lock" class="lucide w-4 h-4 mr-3 text-accent-red"></i>
+                                Specialized Security Services
+                            </a>
+                            <a href="#assessment" class="block px-4 py-3 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 transition flex items-center">
+                                <i data-lucide="clipboard-check" class="lucide w-4 h-4 mr-3 text-accent-red"></i>
+                                Security Assessment Services
+                            </a>
+                            <a href="#consulting" class="block px-4 py-3 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 transition flex items-center">
+                                <i data-lucide="users" class="lucide w-4 h-4 mr-3 text-accent-red"></i>
+                                Security Consulting Services
+                            </a>
+                            <a href="#compliances" class="block px-4 py-3 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 transition flex items-center">
+                                <i data-lucide="check-circle" class="lucide w-4 h-4 mr-3 text-accent-red"></i>
+                                Compliances
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-primary-blue dark:hover:text-accent-red font-medium transition duration-300">About Us</a>
+                    <a href="#contact" class="px-4 py-2 bg-accent-red text-white font-semibold rounded-full hover:bg-red-700 transition duration-300 shadow-lg shadow-red-500/50">Contact</a>
+                </div>
+
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-primary-blue">
+                    <i data-lucide="sun" id="sun-icon" class="lucide w-6 h-6 text-yellow-500 dark:hidden"></i>
+                    <i data-lucide="moon" id="moon-icon" class="lucide w-6 h-6 text-primary-blue hidden dark:block"></i>
+                </button>
+            </div>
+        </div>
     </header>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative overflow-hidden pt-20 pb-28 sm:pt-32 sm:pb-40 bg-white dark:bg-gray-900 transition-colors duration-500">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-primary-blue dark:text-accent-red text-lg font-semibold mb-3">CYBER RISK & GOVERNANCE</p>
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight text-gray-900 dark:text-white">
+                    Secure Your Future with <span class="text-accent-red">GRCyber</span>
+                </h1>
+                <p class="max-w-3xl mx-auto text-xl text-gray-600 dark:text-gray-300 mb-10">
+                    Comprehensive, professional solutions for compliance, risk management, and advanced security assessments tailored to your business needs.
+                </p>
+                <a href="#services-list" class="inline-block px-10 py-4 bg-primary-blue text-white font-bold text-lg rounded-full shadow-2xl shadow-primary-blue/50 hover:bg-blue-900 transition duration-300 transform hover:scale-105">
+                    Explore Services
+                </a>
+            </div>
+        </section>
 
-    <div class="container">
-        <h2>System Status Check</h2>
-        <p>This is a temporary page to confirm that the hosting, domain, and file serving are working correctly.</p>
+        <!-- Services Section -->
+        <section id="services-list" class="py-20 bg-light-bg dark:bg-gray-800 transition-colors duration-500">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Our Core Cybersecurity Services</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-400">Integrated solutions to protect, assess, and guide your organization.</p>
+                </div>
 
-        <div class="test-message">
-            **SUCCESS:** GRCyber Test Page is **LIVE** and **WORKING**!
-            <br><small>Static HTML file is being rendered successfully.</small>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service 1: Specialized Security Services -->
+                    <div id="specialized" class="p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition duration-500 transform hover:-translate-y-1 border-t-4 border-accent-red">
+                        <i data-lucide="shield" class="lucide w-10 h-10 text-accent-red mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3 dark:text-white">Specialized Security Services</h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Advanced defense mechanisms, threat intelligence, incident response, and continuous monitoring against sophisticated attacks.
+                        </p>
+                    </div>
+
+                    <!-- Service 2: Security Assessment Services -->
+                    <div id="assessment" class="p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition duration-500 transform hover:-translate-y-1 border-t-4 border-primary-blue">
+                        <i data-lucide="scan-search" class="lucide w-10 h-10 text-primary-blue mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3 dark:text-white">Security Assessment Services</h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Comprehensive penetration testing, vulnerability scanning, code review, and physical security evaluations to find and fix flaws.
+                        </p>
+                    </div>
+
+                    <!-- Service 3: Security Consulting Services -->
+                    <div id="consulting" class="p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition duration-500 transform hover:-translate-y-1 border-t-4 border-accent-red">
+                        <i data-lucide="lightbulb" class="lucide w-10 h-10 text-accent-red mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3 dark:text-white">Security Consulting Services</h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Strategic guidance on security architecture, policy development, risk management frameworks, and security roadmapping.
+                        </p>
+                    </div>
+
+                    <!-- Service 4: Compliances -->
+                    <div id="compliances" class="p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition duration-500 transform hover:-translate-y-1 border-t-4 border-primary-blue">
+                        <i data-lucide="file-check" class="lucide w-10 h-10 text-primary-blue mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3 dark:text-white">Compliances</h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Achieve and maintain regulatory compliance with standards like ISO 27001, GDPR, HIPAA, and PCI DSS.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section id="contact" class="py-20 bg-primary-blue dark:bg-gray-950 transition-colors duration-500">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <h2 class="text-4xl font-extrabold mb-4">Ready to Enhance Your Security Posture?</h2>
+                <p class="text-xl opacity-90 mb-8">
+                    Schedule a free consultation with our experts today.
+                </p>
+                <a href="mailto:info@grcyber.com" class="inline-block px-12 py-4 bg-accent-red text-white font-bold text-xl rounded-full shadow-xl shadow-red-500/50 hover:bg-red-700 transition duration-300 transform hover:scale-105">
+                    Get in Touch
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 dark:bg-gray-900 text-gray-300 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2025 GRCyber. All rights reserved. | Built with Security & Design in Mind.</p>
         </div>
-
-        <h3>Next Steps:</h3>
-        <ul>
-            <li>**Check the URL:** Ensure the address in your browser is correct.</li>
-            <li>**Check the Console:** Open developer tools (F12) to ensure no critical loading errors.</li>
-            <li>**Replace this file:** Once testing is complete, upload the actual website files.</li>
-        </ul>
-    </div>
-
-    <footer>
-        &copy; 2025 GRCyber. All Rights Reserved.
     </footer>
 
+    <!-- JavaScript for Theme Toggle and Dropdown -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 1. Theme Toggle Logic
+        const toggleButton = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Check for saved theme preference or system preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Apply initial theme
+        if (savedTheme) {
+            applyTheme(savedTheme);
+        } else if (prefersDark) {
+            applyTheme('dark');
+        } else {
+            applyTheme('light');
+        }
+
+        // Toggle handler
+        toggleButton.addEventListener('click', () => {
+            const currentTheme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+        });
+
+        // 2. Services Dropdown Logic
+        const servicesButton = document.getElementById('services-btn');
+        const servicesMenu = document.getElementById('services-menu');
+
+        servicesButton.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevents document click from closing it immediately
+            servicesMenu.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!servicesMenu.contains(e.target) && !servicesButton.contains(e.target)) {
+                servicesMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
